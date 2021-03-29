@@ -1,0 +1,29 @@
+name: e2e
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, labeled]
+    paths-ignore:
+      - "**/README.md"
+  workflow_dispatch:
+
+jobs:
+  checkout:
+    name: default
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - run: git status
+      run: cat info.txt
+  checkout:
+    name: head
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        persist-credentials: false
+    - run: git status
+    - run: cat info.txt
