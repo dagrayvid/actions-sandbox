@@ -1,4 +1,4 @@
-name: e2e
+name: checkout
 
 on:
   pull_request_target:
@@ -16,7 +16,7 @@ jobs:
       with:
         persist-credentials: false
     - run: git status
-      run: cat info.txt
+    - run: cat info.txt
   checkout:
     name: head
     runs-on: ubuntu-latest
