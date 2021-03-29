@@ -17,7 +17,7 @@ jobs:
         persist-credentials: false
     - run: git status
     - run: cat info.txt
-  checkout:
+  checkout2:
     name: head
     runs-on: ubuntu-latest
     steps:
