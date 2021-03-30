@@ -1,15 +1,15 @@
-name: checkout
+name: checkout-pr
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize, reopened, labeled]
     paths-ignore:
       - "**/README.md"
   workflow_dispatch:
 
 jobs:
-  checkout:
-    name: default
+  checkout-pr:
+    name: default-pr
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -17,8 +17,8 @@ jobs:
         persist-credentials: false
     - run: git status
     - run: cat info.txt
-  checkout2:
-    name: head
+  checkout2-pr:
+    name: head-pr
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
